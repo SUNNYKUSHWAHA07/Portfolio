@@ -9,6 +9,7 @@
 html,body{
     font-family: Host Grotesk;
     overflow-x: hidden;
+    overflow-y: auto;
     background-color: rgba(0, 0, 0, 1);
     overscroll-behavior: none;
     scroll-behavior: smooth;
