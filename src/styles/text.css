@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: Host Grotesk;
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 1);
+    scroll-behavior: smooth;
+
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.copy-container p{
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 450;
+}
+
+.copy-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 2rem;
+}
+
+.copy-container h1{
+    width: 100%;
+    color: #b8fff7;
+    font-size: 4rem;
+    padding: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* .hero .copy-container{
+    background: #b8fff7;
+} */
+
+.cta .copy-container {
+    background: #6e3466;
+}
+
+.outro .copy-container {
+    background: #7a78ff;
+}
+
+.about .copy-container, .feature .copy-container{
+    border: 0.15rem dashed rgb(60, 60 ,60);
+}
+
+.anime-text{
+    width: 80%;
+}
+
+.anime-text p{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.anime-text .word {
+    display: inline-block;
+    position: relative;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2rem;
+    will-change: opacity, background-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.anime-text .word .keyword-wrapper {
+    margin: 0 0.4rem 0.2rem 0.2rem;
+    padding-left: 10px;
+}
+
+.anime-text .word span {
+    position: relative;
+    will-change: opacity;
+    backface-visibility: hidden;
+}
+
+.anime-text .word span.keyword {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    padding: 0.1rem 0;
+    color: #141414;
+}
+
+.anime-text .word span.keyword::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 1rem);
+    height: calc(100% + 0.4rem);
+    background-color: #fff;
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+.anime-text .word span.keyword.vibrant::before,
+.anime-text .word span.keyword.shape::before,
+.anime-text .word span.keyword.interactive::before{
+    background-color: #b8fff7;
+}
+
+.anime-text .word span.keyword.living::before,
+.anime-text .word span.keyword.expression::before,
+.anime-text .word span.keyword.storytelling::before{
+    background-color: #0133ff;
+}
+
+.anime-text .word span.keyword.clarity::before,
+.anime-text .word span.keyword.intuitive::before,
+.anime-text .word span.keyword.vision::before{
+    background-color: #66d1fe;
+}
+
+.anime-text .word, .anime-text .word span {
+    opacity: 0;
+}
+
+
+@media (max-width: 1000px) {
+  .footer h1{
+    font-size: 2rem;
+  }  
+  
+  .object{
+    font-size: 1rem;
+  }
+
+  .copy-container{
+    width: 100%;
+  }
+
+  .copy-container h1{
+    width: 90%;
+    color: #141414;
+    font-size: 2rem;
+}
+
+.anime-text{
+    width: 100%;
+}
+
+.anime-text p{
+   font-size: 1.25rem;
+}
+
+.anime-text .word {
+    margin-right: 0.1rem;
+    margin-bottom: 0.15rem;
+    padding: 0.1rem 0.2rem;
+}
+
+.anime-text .word.keyword-wrapper {
+    margin: 0 0.2rem 0.1rem 0.1rem;
+}
+
+
+}

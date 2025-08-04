@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: Host Grotesk;
+    background-color:rgba(0, 0, 0, 1);
+    overscroll-behavior: none;
+    user-select: none;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+}
+
+body.dragging {
+    cursor: grabbing;
+}
+
+#gallery {
+    position: relative;
+    width: 100vw;
+    height: 100svh;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+.vignette-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: radial-gradient(ellipse at center, transparent 50%, 
+    rgba(0, 0, 0, 0.1) 70%,
+    rgba(0, 0, 0, 0.75) 90%,
+    rgba(0, 0, 0, 1) 100%
+    );
+}
+
+.vignette-overlay{
+    padding: 2vw;
+    opacity: 0.5;
+}

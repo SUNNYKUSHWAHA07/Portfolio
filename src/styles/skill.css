@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: Host Grotesk;
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 1);
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.skill-hero p{
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 450;
+}
+
+section.skill-hero{
+    position: relative;
+    width: 100vw;
+    height: 100svh;
+    overflow: hidden;
+    padding: 2em;
+    
+}
+
+.skill-container{
+    overflow: hidden;
+}
+
+.skill-hero p{
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sticky-bar {
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    transform:  translateY(-50%);
+    padding: 2em;
+    display: flex;
+    color: #fff;
+    mix-blend-mode: difference;
+    opacity: 0;
+}
+
+.sticky-bar .item:nth-child(1),
+.sticky-bar .item:nth-child(3){
+    flex: 2;
+}
+
+.sticky-bar .item:nth-child(3){
+    text-align: right;
+}
+
+.sticky-bar .item:nth-child(2) {
+  flex: 1;
+  text-align:  center;
+}
+
+.sticky-bar .item p{
+    color:  #fff;
+    font-size: 1.25vw;
+}
+
+section.skill-hero{
+    width: 100vw;
+    height: 100vh;
+}
+
+.clients{
+    width: 100%;
+    padding: 10em 1em;
+    /* background: #fff; */
+}
+.skill-row{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+section.skill-hero .logo>p{
+    font-size:  40px;
+    color: #fff;
+}
+
+section.trigger-footer {
+    width: 100%;
+    height: 100vh;
+    /* background: #000; */
+}
+
+section.trigger-footer img{
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+
+@media (max-width: 1000px) {
+  .footer h1{
+    font-size: 2rem;
+  }  
+  
+ 
+
+  .object{
+    font-size: 1rem;
+  }
+
+
+  .sticky-bar .item p{
+    font-size: 4vw;
+  }
+
+
+.skill-row .logo p{
+    font-size: 20px;
+ }
+
+
+
+ 
+
+}

@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: Host Grotesk;
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 1);
+    overscroll-behavior: none;
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preloader p{
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 450;
+}
+
+.preloader h1 , .split-overlay{
+    text-transform: uppercase;
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+
+
+.preloader p{
+    text-transform:  uppercase;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.preloader, .split-overlay  {
+    position: fixed;
+    z-index: 3;
+    width: 100vw;
+    height: 100svh;
+    background-color: #0a0a0a;
+}
+
+.preloader .split-overlay {
+    color: #fff;
+}
+
+.preloader  {
+    z-index: 2;
+}
+
+.split-overlay{
+    z-index: 1;
+    
+}
+
+.intro-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    color:#fff;
+}
+
+.outro-title{
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 10rem);
+    transform: translate(-50%, -50%);
+    color:#fff;
+}
+
+
+
+.intro-title .char, .outro-title .char  {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.intro-title .char, .outro-title .char {
+    margin-top: 0.75rem;
+}
+
+.intro-title .char span, .outro-title .char span {
+    position: relative;
+    display: inline-block;
+    transform: translateY(-100%);
+    will-change: transform;
+}
+
+.intro-title .first-char {
+    transform-origin: top left;
+}
+
+@media (max-width: 1000px) {
+  .footer h1{
+    font-size: 2rem;
+  }  
+  
+  .outro-title{
+    left: calc(50% + 4rem);
+  }
+
+  .object{
+    font-size: 1rem;
+  }
+
+ 
+  .preloader h1 , .split-overlay h1{
+    text-transform: uppercase;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+
+
+ .intro-title .char,
+ .outro-title .char {
+    margin-top:  0.5rem;
+ }
+
+}

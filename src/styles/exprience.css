@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    background-color: black;
+    color: #e3e3db ;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    
+}
+
+section.exprince{
+    width: 100vw;
+    height: 100svh;
+    padding: 2.5em;
+    z-index: 0;
+}
+
+
+.exprince {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 4em;
+    color: #b9b9b3;
+    background-color: black;
+    position: relative;
+    z-index: 10;
+    
+}
+
+.exprince h1{
+    position: relative;
+    left: -0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 18vw;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.hero-copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+
+.outro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro{
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+}
+
+.intro a{
+    text-decoration: none;
+    color: #b9b9b3;
+}
+
+.video-container-desktop{
+    position: relative;
+    transform: translateY(105%) scale(0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    will-change: transform;
+}
+
+.video-container-desktop .video-title p{
+    position: relative;
+    font-size: 78px;
+    font-weight: 500;
+}
+
+.video-container-mobile {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+.video-preview {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+
+.video-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    overflow: hidden;
+
+}
+
+
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    pointer-events: none;
+}
+
+@media (max-width: 900px) {
+   
+
+    .exprince {
+        justify-content: flex-end;
+        gap: 2em;
+        min-height: fit-content;
+    }
+
+    .exprince h1 {
+        font-size: 18vw;
+    }
+
+    .video-container-desktop {
+        display: none;
+    }
+
+    .video-container-mobile{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+}
