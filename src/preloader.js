@@ -144,6 +144,11 @@ export const preloader = () =>{
 },
 6);
 
+tl.to([".preloader",".split-overlay"],{
+    y: (i) => (i === 0 ? "-50%" : "50%"),
+    opacity: 0;
+  },6)
+
 
 }
 
