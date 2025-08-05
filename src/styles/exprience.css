@@ -127,11 +127,11 @@ video{
     .exprince {
         justify-content: flex-end;
         gap: 2em;
-        min-height: fit-content;
+        margin-top: 10vh;
     }
 
     .exprince h1 {
-        font-size: 18vw;
+        font-size: 15vw;
     }
 
     .video-container-desktop {
@@ -143,4 +143,10 @@ video{
         flex-direction: column;
         gap: 1em;
     }
+
+     .video-title p{
+    position: relative;
+    font-size: 20px;
+    font-weight: 500;
+}
 }

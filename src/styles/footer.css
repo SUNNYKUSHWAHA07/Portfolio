@@ -84,7 +84,10 @@
     overflow: hidden;
    }
 
+   
+
    .foot-head h1{
+    font-size: 23px;
      border-top: none;
      border-bottom:1px solid whitesmoke ;
    
@@ -96,12 +99,20 @@
    .foot-head{
     border-left: 1px solid whitesmoke;
     width: 90%;
-    max-height: 40vh;
+    height: fit-content;
     border-right: 1px solid whitesmoke;
 }
 
+
+
 .foot-small{
-    height: 5vh;
-    font-size: 2vw;
+    height: fit-content;
+    font-size: 3vw;
 }
+
+.copy-container{
+    min-height: 100vh;
+}
+
+
 }
