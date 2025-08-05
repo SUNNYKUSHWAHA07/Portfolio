@@ -11,9 +11,7 @@ html,body{
     background-color:rgba(0, 0, 0, 1);
     overscroll-behavior: none;
     user-select: none;
-    scroll-behavior: smooth;
-    
-
+    scroll-behavior: smooth;   
 }
 
 body.dragging {
@@ -26,6 +24,7 @@ body.dragging {
     height: 100svh;
     overflow: hidden;
     border-radius: 1em;
+    scroll-behavior: smooth;
 }
 
 .vignette-overlay {
