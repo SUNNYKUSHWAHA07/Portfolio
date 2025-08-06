@@ -72,7 +72,7 @@ export const exprience = () =>{
                 trigger: ".intro",
                 start: "top bottom",
                 end: "top 10%",
-                scrub: true,
+                scrub: 0.5,
                 onUpdate:(self) => {
                     animationState.scrollProgress = self.progress;
                     animationState.currentTranslateY = gsap.utils.interpolate(

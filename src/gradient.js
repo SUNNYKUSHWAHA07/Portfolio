@@ -26,24 +26,33 @@ function hexToRgb(hex){
 }
 
 const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer:false});
+const renderer = new THREE.WebGLRenderer({ antialias: window.innerWidth > 768, preserveDrawingBuffer: false,});
 
 const gradientCanvas = document.querySelector(".gradient-canvas");
 renderer.setSize(window.innerWidth, window.innerHeight);
+const maxPixelRatio = window.innerWidth < 768 ? 1.0 : 1.5; // Cap DPR on phones
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxPixelRatio));
+
 gradientCanvas.appendChild(renderer.domElement);
 
-const fluidTarget1 = new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight,{
+const lowResWidth = Math.floor(window.innerWidth * 0.75);
+const lowResHeight = Math.floor(window.innerHeight * 0.75);
+
+const isMobile = window.innerWidth < 768;
+
+
+const fluidTarget1 = new THREE.WebGLRenderTarget( isMobile ? lowResWidth : window.innerWidth, isMobile ? lowResWidth : window.innerHeight,{
   minFilter: THREE.LinearFilter,
   magFilter: THREE.LinearFilter,
   format: THREE.RGBAFormat,
-  type: THREE.FloatType,
+  type: THREE.HalfFloatType,
 });
 
-const fluidTarget2 = new THREE.WebGLRenderTarget(window.innerWidth,innerHeight,{
+const fluidTarget2 = new THREE.WebGLRenderTarget( isMobile ? lowResWidth :window.innerWidth, isMobile ? lowResWidth :innerHeight,{
   minFilter: THREE.LinearFilter,
   magFilter: THREE.LinearFilter,
   format: THREE.RGBAFormat,
-  type: THREE.FloatType,
+  type: THREE.HalfFloatType,
 });
 
 let currentFluidTarget = fluidTarget1;
@@ -96,7 +105,13 @@ let mouseX = 0, mouseY = 0;
 let prevMouseX = 0, prevMouseY = 0;
 let lastMoveTime = 0;
 
+
+
+let userInteracted = false;
+
 document.addEventListener("mousemove", (e) =>{
+   userInteracted = true;
+  lastMoveTime = performance.now();
   
   const rect = gradientCanvas.getBoundingClientRect();
   prevMouseX = mouseX;
@@ -119,18 +134,29 @@ document.addEventListener("mouseleave", ()=>{
   fluidMaterial.uniforms.iMouse.value.set(0, 0, 0, 0);
 });
 
+let configNeedsUpdate = true;
+const updateUniformsEvery = 10;
+
 function animate(){
   requestAnimationFrame(animate);
 
   const time = performance.now()* 0.001;
+    if (isMobile && !userInteracted) {
+    renderer.render(displayPlane, camera); 
+    return;
+  }
   fluidMaterial.uniforms.iTime.value = time;
   displayMaterial.uniforms.iTime.value = time;
   fluidMaterial.uniforms.iFrame.value = frameCount;
+
+
 
   if(performance.now() - lastMoveTime > 100){
     fluidMaterial.uniforms.iMouse.value.set(0, 0, 0, 0); 
   }
 
+  
+if (configNeedsUpdate || frameCount % updateUniformsEvery === 0) {
   fluidMaterial.uniforms.uBrushSize.value = config.brushSize;
   fluidMaterial.uniforms.uBrushStrength.value = config.brushStrength;
   fluidMaterial.uniforms.uFluidDecay.value = config.fluidDecay;
@@ -143,6 +169,8 @@ function animate(){
   displayMaterial.uniforms.uColor2.value.set( ...hexToRgb(config.color2))
   displayMaterial.uniforms.uColor3.value.set( ...hexToRgb(config.color3))
   displayMaterial.uniforms.uColor4.value.set( ...hexToRgb(config.color4))
+   configNeedsUpdate = false; 
+}
   fluidMaterial.uniforms.iPreviousFrame.value = previousFluidTarget.texture;
   renderer.setRenderTarget(currentFluidTarget);
   renderer.render(fluidPlane, camera);

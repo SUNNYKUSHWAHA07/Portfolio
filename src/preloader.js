@@ -130,7 +130,7 @@ export const preloader = () =>{
 ).to(".hero",{
     clipPath: "polygon(0% 48%, 100% 48%, 100% 52%, 0% 52%)",
     duration: 1,
-},5);
+},"0.5");
 
  
 
@@ -146,7 +146,7 @@ export const preloader = () =>{
 
 tl.to([".preloader",".split-overlay"],{
     y: (i) => (i === 0 ? "-50%" : "50%"),
-    opacity: 0;
+    opacity: 0
   },6)
 
 
