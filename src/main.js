@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { textanimation } from "./textanime.js";
 import { skillanimation } from "./skills.js";
 import { gradient } from "./gradient.js";
-import { preloader } from "./preloader.js";
+import { preloader} from "./preloader.js";
 import { exprience } from "./expreience.js";
 import { cta } from "./cta.js";
 import {createGallery} from "./gallery.js"
@@ -32,6 +32,7 @@ import "./styles/cta.css"
 
  preloader();
 gradient();
+
 textanimation();
 createGallery();
 

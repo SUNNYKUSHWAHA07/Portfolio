@@ -2,8 +2,9 @@ import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { SplitText } from "gsap/SplitText";
 
+ let tl;
 export const preloader = () =>{
-
+     
     gsap.registerPlugin(CustomEase, SplitText);
 
     CustomEase.create("hop", ".8, 0, .3, 1");
@@ -57,7 +58,7 @@ export const preloader = () =>{
     fontWeight: "500",
    })
 
-   const tl = gsap.timeline({ defaults: { ease: "hop"}});
+    tl = gsap.timeline({ defaults: { ease: "hop"}});
    const tags = gsap.utils.toArray(".tag");
   
    
@@ -142,16 +143,24 @@ export const preloader = () =>{
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     duration: 1,
 },
-6);
-
-tl.to([".preloader",".split-overlay"],{
+6).to([".preloader",".split-overlay"],{
     y: (i) => (i === 0 ? "-50%" : "50%"),
-    opacity: 0
-  },6)
+    opacity: 0,
+  },6).to(".preloader",{
+      onComplete: () =>{
+        killPreloaderAnimation()
+    }
+  })
 
+  
 
 }
 
 
-
+export const killPreloaderAnimation = () => {
+  if (tl) {
+    tl.kill();
+    tl = null;
+  }
+};
 
