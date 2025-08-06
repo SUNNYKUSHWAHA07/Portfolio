@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import Lenis from "lenis";
 import { CustomEase } from "gsap/CustomEase";
 import { SplitText } from "gsap/SplitText";
 
@@ -161,6 +162,11 @@ export const killPreloaderAnimation = () => {
   if (tl) {
     tl.kill();
     tl = null;
+
+    document.querySelector(".preloader")?.remove();
+    document.querySelector(".split-overlay")?.remove();
+    document.body.style.overflow = 'auto';
+    document.body.style.touchAction = 'auto';
   }
 };
 
