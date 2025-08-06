@@ -8,6 +8,7 @@ import { gradient } from "./gradient.js";
 import { preloader } from "./preloader.js";
 import { exprience } from "./expreience.js";
 import { cta } from "./cta.js";
+import {createGallery} from "./gallery.js"
 
  const lenis = new Lenis();
   lenis.on("scroll", ScrollTrigger.update);
@@ -20,7 +21,6 @@ import { cta } from "./cta.js";
 import './styles/gradient.css';
  import './styles/projects.css' ;
 import './styles/loader.css';
-
 import './styles/text.css';
 import './styles/skill.css';
 import './styles/exprience.css';
@@ -33,6 +33,7 @@ import "./styles/cta.css"
  preloader();
 gradient();
 textanimation();
+createGallery();
 
 
 
@@ -40,41 +41,40 @@ textanimation();
 
 
 
+// let galleryContainer;
 
-let galleryContainer;
+// let myFunction = async () => {
+//   // Only load and initialize if not already created
+//   if (!galleryContainer) {
+//     const { createGallery } = await import('./gallery.js');
+//     galleryContainer = createGallery(); // store the reference
+//   }
+// };
 
-let myFunction = async () => {
-  // Only load and initialize if not already created
-  if (!galleryContainer) {
-    const { createGallery } = await import('./gallery.js');
-    galleryContainer = createGallery(); // store the reference
-  }
-};
-
-let cleanFunction = () => {
-  if (galleryContainer) {
-    galleryContainer.remove(); // remove the gallery from DOM
-    galleryContainer = null;
-  }
-};
+// let cleanFunction = () => {
+//   if (galleryContainer) {
+//     galleryContainer.remove(); // remove the gallery from DOM
+//     galleryContainer = null;
+//   }
+// };
 
 
-let trigger;
+// let trigger;
 
-// Set it up when DOM is ready
-window.addEventListener("DOMContentLoaded", () => {
-  trigger = ScrollTrigger.create({
-    trigger: "#gallery", // page 2 section
-    start: "top center", // when top of page2 hits center of viewport
-    endTrigger: ".feature", // page 3 section
-    end: "top top", // when top of page3 hits center
-    onEnter: () => myFunction(),
-    onLeave: () => cleanFunction(),
-    onEnterBack: () => myFunction(),
-    onLeaveBack: () => cleanFunction(),
+// // Set it up when DOM is ready
+// window.addEventListener("DOMContentLoaded", () => {
+//   trigger = ScrollTrigger.create({
+//     trigger: "#gallery", // page 2 section
+//     start: "top center", // when top of page2 hits center of viewport
+//     endTrigger: ".feature", // page 3 section
+//     end: "top top", // when top of page3 hits center
+//     onEnter: () => myFunction(),
+//     onLeave: () => cleanFunction(),
+//     onEnterBack: () => myFunction(),
+//     onLeaveBack: () => cleanFunction(),
     
-  });
-});
+//   });
+// });
 
 
 ScrollTrigger.create({

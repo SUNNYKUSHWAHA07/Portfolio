@@ -22,7 +22,6 @@ body.dragging {
     position: relative;
     width: 100vw;
     height: 100svh;
-    overflow: hidden;
     border-radius: 1em;
     scroll-behavior: smooth;
 }
@@ -49,3 +48,11 @@ body.dragging {
     padding: 2vw;
     opacity: 0.5;
 }
+
+@media (max-width: 480px){
+  #gallery {
+    height: 60svh;
+    margin-top: 10vh; 
+}
+}
+
